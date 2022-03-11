@@ -1,0 +1,36 @@
+{
+  "employees": [
+    {
+      "First_name": "zeberega",
+      "Last_name": "chala",
+      "Gender": "Male",
+      "Age": 20,
+      "Height": 30,
+      "id": 6
+    },
+    {
+      "First_name": "bedasa",
+      "Last_name": "zeberga",
+      "Gender": "Female",
+      "Age": 20,
+      "Height": 30,
+      "id": 7
+    },
+    {
+      "First_name": "abebe",
+      "Last_name": "belete",
+      "Gender": "Female",
+      "Age": 30,
+      "Height": 30,
+      "id": 8
+    },
+    {
+      "First_name": "Alemitu",
+      "Last_name": "tezera",
+      "Gender": "Female",
+      "Age": 20,
+      "Height": 30,
+      "id": 9
+    }
+  ]
+}
