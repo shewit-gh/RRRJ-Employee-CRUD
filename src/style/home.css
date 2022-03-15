@@ -1,9 +1,11 @@
 .styled-table{
     border-collapse:collapse;
     margin: auto;
+    table-layout: fixed ;
+    max-width: 880px;
+    width: 100% ;
     font-size: 0.9em;
     font-family: sans-serif;
-    max-width: 800px;
     box-shadow: 0 0 20px rgba(0,0,0,0.15);
     align-content: center;
 }
@@ -11,23 +13,33 @@
     margin: auto;
     font-size: 0.9em;
     font-family: sans-serif;
-    max-width: 800px;
+    max-width: 880px;
     display: flex;
     
 }
 .top .try{
    margin-left: auto;
 }
+.styled-table tbody tr:hover{
+    background-color: rgb(248, 248, 248);;
+}
 .top .try .btn-add{
     background-color: rgb(0, 162, 255);
+    width: 100px;
+    height: 30px;
+    border-radius: 8px;
  }
- 
+ .top .try .btn-add:hover{
+    background-color: rgba(0, 162, 255, 0.7);
+ }
 .styled-table thead tr {
-    background-color: black;
-    color: deepskyblue;
+    background-color: deepskyblue;
+    color: black;
 }
 p{
-    color: deepskyblue;
+    color: rgb(0, 162, 255);
+    font-size: medium;
+    font-weight: bold;
 }
 
 .styled-table th,
@@ -36,18 +48,6 @@ p{
     text-align: center;
 }
 
-/* .styled-table tbody tr {
-    border-bottom: 1px solid white;
-} */
-
-.styled-table tbody tr:nth-of-type(even)
-{
-    background-color: red;
-}
-
-/* .styled-table tbody tr:last-of-type{
-    border-bottom: 2px solid #009879;
-} */
 
 .btn {
     border: none;
@@ -65,8 +65,15 @@ p{
 
 .btn-edit{
     background-color: yellow;
+    border-radius: 8px;
 }
-
+.btn-edit:hover{
+    background-color: rgba(255,255, 0, 0.2);
+}
 .btn-delete{
     background-color: red;
+    border-radius: 8px;
+}
+.btn-delete:hover{
+    background-color:rgba(255, 0, 0, 0.2);
 }

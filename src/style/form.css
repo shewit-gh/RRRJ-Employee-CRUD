@@ -1,23 +1,6 @@
 .form{
-    width: 50%;
+    width: 45%;
     margin:auto;
-    padding-top: 10% ;
+    padding-top: 6% ;
     
-}
-.btn{
-    margin-left:auto;
-    width:200px;
-}
-tbody, td, th, thead, tr{
-    border-style: none;
-    background-color: white;
-}
-table {
-    table-layout: fixed ;
-    width: 100% ;
-    border-collapse: separate;
-    border-spacing: 0 15px;
-}
-td{
-    width:25%;
 }

@@ -9,8 +9,8 @@ import {
 
 import{useDispatch} from 'react-redux';
 import{useNavigate} from 'react-router-dom';
-import { addEmployee } from './redux/Action';
-
+// import { addEmployee } from './redux-thunk/Action';
+import {addEmp} from './redux-saga/saga-actions';
 
 
 
@@ -29,7 +29,7 @@ function Userform(props){
             window.confirm("please enter all the required fields")
         }else{
             const emp = {First_name,Last_name,Gender,Age,Height}
-            dispatch(addEmployee(emp))
+            dispatch(addEmp(emp))
             console.log(emp);
 
             setfname("");
@@ -39,114 +39,115 @@ function Userform(props){
         }
         
     }
-    // const [employee, setEmployee]= useState({
-    //     First_name: "",
-    //     Last_name: "",
-    //     Gender:"",
-    //     Age: 0,
-    //     Height: 0
-    // })
-    // const {First_name,Last_name,Age,Height}= employee
+    
     return(
         <div className='form'>
             
             <Button  onClick={()=>{navigate('/')}}
-                sx={{ 
-                backgroundColor:'blue'}}>
+                sx={{
+                    ':hover':{
+                        backgroundColor: 'rgba(0, 162, 255, 0.7)',
+                        },
+                    backgroundColor:'rgb(0, 162, 255)',
+                    marginBottom: 4,
+                    marginLeft:3,
+                    borderRadius:8,
+                    width:'100px'
+
+                }}>
                     Back
             </Button>
             
             <Box
             sx={{ 
-                backgroundColor:'white',
-                borderRadius:10
+                borderRadius:10,
+                boxShadow:'0 0 20px rgba(0,0,0,0.15)'
             }}
             
             as='form'
             onSubmit={submithandler}
             py={3}>
-            <Text
-                sx={{
-                    marginBottom:10
-                }}
-                px={2}
-            >
-                Employee Detail <span sx={{color:'red'}}>*</span>
-            </Text>
-            <Flex mb={3}>
-                <Box width={1/2} px={2} >
-                <Label htmlFor='Fname' py={2}>First Name</Label>
-                <Input
-                    id='Fname'
-                    name='Fname'
-                    value={First_name}
-                    onChange ={(e)=>{setfname(e.target.value)}}
-                />
-                </Box>
-                <Box width={1/2} px={3}>
-                <Label htmlFor='Lname' py={2}>Last Name</Label>
-                <Input
-                    id='Lname'
-                    name='Lname'
-                    value={Last_name}
-                    onChange ={(e)=>{setlname(e.target.value)}}
-                />
-                </Box>
-            </Flex>
-            <Flex mx={2}>
-            <Box width={1/4} >
-                <Label htmlFor='age' py={2}>Age</Label>
-                <Input
-                    id='age'
-                    name='age'
-                    value={Age}
-                    onChange ={(e)=>{setage(parseInt(e.target.value))}}
-                />
-                </Box>
-                <Box width={1/4} mx={5} >
-                <Label htmlFor='height' py={2}>Height</Label>
-                <Input
-                    id='height'
-                    name='height'
-                    value={Height}
-                    onChange ={(e)=>{setheight(parseInt(e.target.value))}}
-                />
-                </Box>
+            <Box sx={{
+                    margin:'5%'
+            }}>
+                <Flex mb={3} mx={2}>
+                    <Box width={1/3}  >
+                    <Label htmlFor='Fname' py={2}>First Name <Text color={'red'}>*</Text></Label>
+                    <Input
+                        id='Fname'
+                        name='Fname'
+                        value={First_name}
+                        onChange ={(e)=>{setfname(e.target.value)}}
+                    />
+                    </Box>
+                    <Box width={1/3} mx={5}>
+                    <Label htmlFor='Lname' py={2}>Last Name <Text color={'red'}>*</Text> </Label>
+                    <Input
+                        id='Lname'
+                        name='Lname'
+                        value={Last_name}
+                        onChange ={(e)=>{setlname(e.target.value)}}
+                    />
+                    </Box>
                 </Flex>
-            <Flex  flexWrap='wrap'>
-                <Label width={[ 1/2, 1/4 ]} p={2}>
-                <Radio
-                    id='F'
-                    name='gender'
-                    value='Female'
-                    checked= {false}
-                    onChange ={(e)=>{setgender(e.target.value)}}
-                />
-                Female
-                </Label>
-                <Label width={[ 1/2, 1/4 ]} p={2}>
-                <Radio
-                    id='M'
-                    name='gender'
-                    value='Male'
-                    checked = {false}
-                    onChange ={(e)=>{setgender(e.target.value)}}
-                />
-                Male
-                </Label>
-                
-            </Flex>
-            <Box px={2} ml='auto'>
+                <Flex mx={2}>
+                <Box width={1/3} >
+                    <Label htmlFor='age' py={2}>Age <Text color={'red'}>*</Text></Label>
+                    <Input
+                        id='age'
+                        name='age'
+                        value={Age}
+                        onChange ={(e)=>{setage(parseInt(e.target.value) || '')}}
+                    />
+                    </Box>
+                    <Box width={1/3} mx={5} >
+                    <Label htmlFor='height' py={2}>Height <Text color={'red'}>*</Text></Label>
+                    <Input
+                        id='height'
+                        name='height'
+                        value={Height}
+                        onChange ={(e)=>{setheight(parseInt(e.target.value) || '')}}
+                    />
+                    </Box>
+                    </Flex>
+                <Flex  flexWrap='wrap' marginTop={4}>
+                    <Label width={[ 1/2, 1/4 ]} p={2}>
+                    <Radio
+                        id='F'
+                        name='gender'
+                        value='Female'
+                        checked= {false}
+                        onChange ={(e)=>{setgender(e.target.value)}}
+                    />
+                    Female
+                    </Label>
+                    <Label width={[ 1/2, 1/4 ]} p={2}>
+                    <Radio
+                        id='M'
+                        name='gender'
+                        value='Male'
+                        checked = {false}
+                        onChange ={(e)=>{setgender(e.target.value)}}
+                    />
+                    Male
+                    </Label>
+                    
+                </Flex>
+            </Box>
+            <Box >
                 <Button 
                 type='submit'
                     sx={{
                         ':hover':{
-                        backgroundColor: 'tomato',
+                        backgroundColor: 'rgba(0, 162, 255, 0.7)',
                         },
                     color: 'white', 
                     fontSize: 2,      
-                    margin: 3,  
-                    backgroundColor:'ActiveCaption'      
+                    marginLeft:'40%',
+                    marginTop:'2%',
+                    width:'100px', 
+                    borderRadius:'8px',
+                    backgroundColor:'rgb(0, 162, 255)'      
                     }}
                 >
                     Submit

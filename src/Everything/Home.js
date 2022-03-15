@@ -2,8 +2,8 @@ import React, {useEffect} from 'react';
 import { useNavigate } from "react-router-dom";
 import '../style/home.css';
 import {useDispatch, useSelector} from 'react-redux';
-import { deleteEmployee, loadEmployees} from './redux/Action';
-
+// import { deleteEmployee, loadEmployees} from './redux-thunk/Action';
+import {getemployees,deleteEmp} from './redux-saga/saga-actions'
 
 function Home(props) {
    const navigate = useNavigate();
@@ -11,7 +11,7 @@ function Home(props) {
    const {employees} = useSelector(state => state.employees)
    //loadEmployees
    useEffect(()=>{
-       dispatch(loadEmployees());
+       dispatch(getemployees());
    }, []);
 
    
@@ -21,13 +21,14 @@ function Home(props) {
         navigate(`/editemployee/${employee.id}`)
    }
    //delete Employee
-   const deletehandler = (id)=>{
-        dispatch(deleteEmployee(id))
+   const deletehandler =(id)=>{
+        dispatch(deleteEmp(id));
+        dispatch(getemployees());
    }
     return (
         <div style={{ marginTop: "100px"}}>
         <div className='top'>
-            <div><p>EMPLOYEE</p></div>
+            <div><p>EMPLOYEES</p></div>
             <div className='try'>
                 <button className="btn btn-add" onClick={()=>{navigate('/addemployee')}}>Add</button>
                 

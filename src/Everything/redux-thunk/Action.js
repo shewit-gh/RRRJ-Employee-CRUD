@@ -1,4 +1,3 @@
-import { type } from "@testing-library/user-event/dist/type"
 import {GET_EMPLOYEES, DEL_EMPLOYEE, ADD_EMPLOYEE, EDIT_EMPLOYEE, GET_EMPLOYEE} from "./Actiontype"
 
 
@@ -84,3 +83,6 @@ export const editEmployee = (employee, id)=>{
         .catch(err => console.log(err))
     }
 }
+
+
+
