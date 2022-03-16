@@ -9,6 +9,7 @@ function Home(props) {
    const navigate = useNavigate();
    const dispatch = useDispatch();
    const {employees} = useSelector(state => state.employees)
+   
    //loadEmployees
    useEffect(()=>{
        dispatch(getemployees());
@@ -22,8 +23,11 @@ function Home(props) {
    }
    //delete Employee
    const deletehandler =(id)=>{
-        dispatch(deleteEmp(id));
-        dispatch(getemployees());
+       if(window.confirm("Are you sure you want to delete?")){
+            dispatch(deleteEmp(id))
+            dispatch(getemployees())
+       }
+        
    }
     return (
         <div style={{ marginTop: "100px"}}>
@@ -56,7 +60,7 @@ function Home(props) {
                                     <th scope="row">
                                         {index + 1}
                                     </th>
-                                    <td>{employee.First_name +` `+ employee.Last_name}</td>
+                                    <td style={{ textAlign: "start" }}>{employee.First_name} &nbsp; {employee.Last_name}</td>
                                     <td>{employee.Gender}</td>
                                     <td>{employee.Age}</td>
                                     <td>{employee.Height}</td>

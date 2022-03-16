@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware } from "redux";
-import rootreducer from './rootreducer';
+import rootreducer from '../redux-thunk/rootreducer';
 // import logger from 'redux-logger';
 // import reduxThunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';

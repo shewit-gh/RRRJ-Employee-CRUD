@@ -131,7 +131,6 @@ function Editform(props){
                 </Flex>
             </Box>
             <Box>
-                
                 <Button 
                     css={css `
                     color:white;
@@ -141,11 +140,13 @@ function Editform(props){
                     width:100px;
                     border-radius:8px;
                     background-color:rgb(0, 162, 255);
-                    &hover:{
-                        background-color:rgba(0, 162, 255, 0.7);
-                    }
+                    &:hover {
+                        background-color: rgba(0, 162, 255, 0.7);
+                        }
                     `}
-                    type='submit'>
+                    type='submit'
+                    onClick={submithandler}
+                    >
                     Submit
                 </Button>
                 </Box>

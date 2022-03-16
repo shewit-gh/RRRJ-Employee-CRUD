@@ -1,7 +1,6 @@
 .styled-table{
     border-collapse:collapse;
     margin: auto;
-    table-layout: fixed ;
     max-width: 880px;
     width: 100% ;
     font-size: 0.9em;

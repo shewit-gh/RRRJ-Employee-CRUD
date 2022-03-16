@@ -1,20 +1,28 @@
 {
   "employees": [
     {
-      "First_name": "aschal",
-      "Last_name": "chala",
+      "First_name": "Alemitu",
+      "Last_name": "Tezera",
       "Gender": "Female",
-      "Age": 20,
-      "Height": 30,
-      "id": 7
+      "Age": 25,
+      "Height": 70,
+      "id": 3
     },
     {
-      "First_name": "Alemitu",
-      "Last_name": "belete",
+      "First_name": "Tigist",
+      "Last_name": "Abebe",
       "Gender": "Female",
-      "Age": 69,
-      "Height": 40,
-      "id": 9
+      "Age": 22,
+      "Height": 60,
+      "id": 4
+    },
+    {
+      "First_name": "aschalew",
+      "Last_name": "tezera",
+      "Gender": "Male",
+      "Age": 20,
+      "Height": 71,
+      "id": 5
     }
   ]
 }
